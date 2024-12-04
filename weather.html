@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #020024, #090979, #00d4ff);
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #ffe600;
+            text-shadow: 0 0 20px #ffe600;
+        }
+
+        .search-bar {
+            margin: 20px 0;
+        }
+
+        #cityInput {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #searchBtn {
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff5733;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #searchBtn:hover {
+            transform: scale(1.1);
+        }
+
+        .weather-section {
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        #forecastContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .forecast-item {
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 150px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>weather forecast</h1>
+        </header>
+        <main>
+            <div class="search-bar">
+                <input type="text" id="cityInput" placeholder="Enter city name">
+                <button id="searchBtn">Search</button>
+            </div>
+            <section id="currentWeather" class="weather-section">
+                <h2>Current Weather</h2>
+                <p id="currentInfo">Enter a city to see the weather.</p>
+            </section>
+            <section id="forecast" class="weather-section">
+                <h2>10-Day Forecast</h2>
+                <div id="forecastContainer"></div>
+            </section>
+        </main>
+    </div>
+    <script>
+        const apiKey = "your_api_key_here"; // Replace with your API key
+        const currentWeatherDiv = document.getElementById("currentWeather");
+        const forecastContainer = document.getElementById("forecastContainer");
+
+        document.getElementById("searchBtn").addEventListener("click", () => {
+            const city = document.getElementById("cityInput").value;
+            if (city) {
+                fetchWeather(city);
+            }
+        });
+        async function fetchWeather(city) {
+    try {
+        // Fetch current weather
+        const currentResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+        const currentData = await currentResponse.json();
+
+        if (currentResponse.ok) {
+            displayCurrentWeather(currentData);
+        } else {
+            throw new Error(currentData.message || "City not found");
+        }
+
+        // Fetch 10-day forecast
+        const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`);
+        const forecastData = await forecastResponse.json();
+
+        if (forecastResponse.ok) {
+            displayForecast(forecastData.list);
+        } else {
+            throw new Error(forecastData.message || "Forecast data unavailable");
+        }
+    } catch (error) {
+        alert(`Error: ${error.message}`);
+    }
+}
+
+
+        function displayCurrentWeather(data) {
+            const { main, weather, name } = data;
+            currentWeatherDiv.innerHTML = `
+                <h2>Weather in ${name}</h2>
+                <p>Temperature: ${main.temp}°C</p>
+                <p>Condition: ${weather[0].description}</p>
+                <p>Humidity: ${main.humidity}%</p>
+                <p>Wind Speed: ${data.wind.speed} m/s</p>
+            `;
+        }
+
+        function displayForecast(list) {
+            forecastContainer.innerHTML = ""; // Clear previous forecast
+            for (let i = 0; i < list.length; i += 8) {
+                const { main, weather, dt_txt } = list[i];
+                const forecastDiv = document.createElement("div");
+                forecastDiv.className = "forecast-item";
+                forecastDiv.innerHTML = `
+                    <h3>${new Date(dt_txt).toDateString()}</h3>
+                    <p>Temp: ${main.temp}°C</p>
+                    <p>${weather[0].description}</p>
+                `;
+                forecastContainer.appendChild(forecastDiv);
+            }
+        }
+    </script>
+</body>
+</html>

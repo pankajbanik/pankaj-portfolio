@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pankaj Banik | Portfolio</title>
+  <style>
+    
+
+
+
+
+
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Fantasy Navbar */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 15px 30px;
+      background: radial-gradient(circle, rgba(39, 39, 39, 0.9), rgba(0, 0, 0, 0.5));
+      border: 3px solid #0ff;
+      border-radius: 50px;
+      animation: fantasy-glow 5s infinite alternate;
+      z-index: 1000;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #0ff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    /* Section Styling */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 3rem;
+      color: #39ff14;
+      text-shadow: 0 0 20px #39ff14;
+      margin-bottom: 20px;
+    }
+    
+
+
+    
+
+    section p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+    }
+
+    /* Skills Section with Icons */
+    .skills-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .skill-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #222;
+      padding: 20px;
+      border-radius: 15px;
+      border: 2px solid #0ff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+      width: 150px;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .skill-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+      animation: floating-icon 3s infinite alternate;
+    }
+
+    @keyframes floating-icon {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    .skill-card h3 {
+      color: #0ff;
+      font-size: 1.2rem;
+      margin: 0;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #0ff, 0 0 50px #39ff14;
+    }
+
+    /* Projects Section */
+    .projects-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #222;
+      padding: 20px;
+      border-radius: 15px;
+      border: 2px solid #39ff14;
+      box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
+      width: 250px;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .project-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+    }
+
+    .project-card:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #39ff14, 0 0 50px #08ff08;
+    }
+
+    .project-card h3 {
+      color: #39ff14;
+      font-size: 1.2rem;
+      margin: 10px 0;
+      text-shadow: 0 0 10px #39ff14;
+    }
+
+    .project-card p {
+      color: #aaa;
+      font-size: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* About Section Styling */
+    section#about {
+      position: relative;
+      padding: 100px 20px;
+      text-align: center;
+      animation: fadeInPage 3s ease-out;
+    }
+
+    section#about h2 {
+      font-size: 4rem;
+      color: #39ff14;
+      text-shadow: 0 0 30px #39ff14, 0 0 60px #0ff;
+      margin-bottom: 40px;
+      animation: glowPulse 2s infinite alternate, textReveal 3s ease-out;
+    }
+
+    section#about img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin: 20px auto;
+      box-shadow: 0 0 30px #39ff14, 0 0 50px #ff0080;
+      display: block;
+      animation: rotate3D 4s infinite ease-out, fadeInElement 2s ease-out;
+    }
+
+    section#about p {
+      font-size: 1.5rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: justify;
+      animation: slideUp 3s ease-out, glowText 2s infinite alternate;
+      background: linear-gradient(90deg, rgba(57, 255, 20, 0.2), rgba(0, 255, 255, 0.2));
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+    }
+
+    /* Particle Animation */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #39ff14, transparent);
+      border-radius: 50%;
+      animation: float 5s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-50px) translateX(30px);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100px) translateX(-30px);
+        opacity: 0.4;
+      }
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeInPage {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes glowPulse {
+      from {
+        text-shadow: 0 0 30px #39ff14, 0 0 60px #0ff;
+      }
+      to {
+        text-shadow: 0 0 50px #ff0080, 0 0 100px #0ff;
+      }
+    }
+
+    @keyframes textReveal {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes rotate3D {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+
+    @keyframes fadeInElement {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes glowText {
+      from {
+        text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+      }
+      to {
+        text-shadow: 0 0 30px rgba(57, 255, 20, 1);
+      }
+    }
+
+
+
+    
+  </style>
+</head>
+<body>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="Screenshot 2024-12-01 131132.png" alt="Pankaj Banik">
+    <p>
+      Welcome! I'm Pankaj, an IT enthusiast driven by creativity and technology. I design
+      innovative and functional projects to inspire and solve real-world problems. With a keen
+      interest in web development and design, I strive to create visually stunning and user-friendly 
+      applications that provide value to users. I’m constantly exploring new technologies and
+      methodologies to stay ahead of the curve in the fast-evolving tech landscape.
+    </p>
+    <div class="particles">
+      <!-- Generate 50 glowing particles -->
+      <script>
+        for (let i = 0; i < 50; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          particle.style.top = Math.random() * 100 + '%';
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDuration = Math.random() * 5 + 3 + 's';
+          particle.style.animationDelay = Math.random() * 2 + 's';
+          document.querySelector('.particles').appendChild(particle);
+        }
+      </script>
+    </div>
+  </section>
+
+
+  
+
+
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <p>
+      My expertise lies in creating interactive and responsive web designs using modern tools and technologies. I enjoy turning ideas into reality with clean, efficient, and scalable code.
+    </p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <img src="https://img.icons8.com/fluency/96/html-filetype.png" alt="HTML Icon">
+        <h3>HTML</h3>
+      </div>
+      <div class="skill-card">
+        <img src="https://img.icons8.com/fluency/96/css-filetype.png" alt="CSS Icon">
+        <h3>CSS</h3>
+      </div>
+      <div class="skill-card">
+        <img src="https://img.icons8.com/fluency/96/javascript.png" alt="JavaScript Icon">
+        <h3>JavaScript</h3>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Projects Section -->
+  <!-- Projects Section -->
+<section id="projects">
+  <h2>Projects</h2>
+  <p>
+    Here are some of the innovative projects I’ve worked on, showcasing my skills in design, development, and problem-solving. Each project reflects my passion for creating impactful and user-friendly solutions.
+  </p>
+  <div class="projects-grid">
+    <a href="index.html"><div class="project-card">
+      <img src="https://img.icons8.com/fluency/96/portfolio.png" alt="Portfolio Icon">
+      <h3>Portfolio Website</h3>
+      <p>An animated, responsive portfolio showcasing my skills and projects.</p>
+    </div>
+</a>
+    
+    <a href="weather.html"><div class="project-card">
+      <img src="https://img.icons8.com/fluency/96/weather.png" alt="Weather Icon">
+      <h3>Weather App</h3>
+      <p>A real-time weather app using API integrations.</p>
+    </div>
+    </a>
+    <div class="project-card">
+      <img src="https://img.icons8.com/fluency/96/shopping-cart.png" alt="E-commerce Icon">
+      <h3>E-commerce Design</h3>
+      <p>A mock e-commerce site featuring smooth UI and transitions.</p>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <p>
+    This portfolio website showcases the creativity and skills of Pankaj Banik, featuring interactive designs, animated projects, and a passion for technology.
+  </p>
+</footer>
+<style>
+  /* Footer Styles */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  border-top: 2px solid #0ff;
+  text-shadow: 0 0 10px #39ff14, 0 0 20px #0ff;
+}
+
+footer p {
+  margin: 0;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+</style>
+
+
+</body>
+</html>
